@@ -1,0 +1,3 @@
+[submodule "WorkingShift/WorkingShift/Shift/Working-Shift-Scheduling"]
+	path = WorkingShift/WorkingShift/Shift/Working-Shift-Scheduling
+	url = https://github.com/yuchun1214/Working-Shift-Scheduling.git

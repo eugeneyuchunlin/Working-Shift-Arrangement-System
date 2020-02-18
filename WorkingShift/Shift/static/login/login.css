@@ -1,0 +1,57 @@
+#login{
+    width:400px;
+    height:550px;
+    border:solid 1px;
+    border-color: lightgrey;
+    border-radius:5px;
+    margin:auto;
+    margin-top: 50px;
+}
+
+#login-text{
+    color: #707070;
+    font-size:1.5em;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;;
+    margin: auto;
+    text-align: center;
+    margin-top:100px;
+}
+
+#login-form{
+    padding:0px 75px 0px 75px;
+    margin-top:50px;
+    font-family: "HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue";
+    color:#707070;
+}
+
+.form{
+    margin-top:25px;
+}
+
+input{
+    outline: none;
+    border-radius: 5px;
+    border:none;
+    border:solid 1px;
+    border-color:lightgrey;
+    height:2.5em;
+    width:240px;
+    font-size: 25px;
+    font-family: "HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue";
+    
+}
+
+#login-button{
+    border:1px solid;
+    border-radius:15px;
+    width:60px;
+    color:grey;
+    border-color:lightgrey;
+    font-family: "HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue";
+    padding:5px;
+    text-align:center;
+    cursor: pointer;
+    margin:auto;
+    margin-top:50px;
+}
+

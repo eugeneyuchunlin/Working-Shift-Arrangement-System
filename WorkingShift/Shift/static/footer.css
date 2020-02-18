@@ -1,0 +1,11 @@
+#footer{
+    background-color:#A8A8A8;
+    opacity: 0.53;
+    height: 150px;
+    width: inherit;
+    margin-top: 50px;
+    color:white;
+    text-align:center;
+    padding-top: 50px;
+    font-size: 20px;
+}

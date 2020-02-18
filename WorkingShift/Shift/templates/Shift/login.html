@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'login/login.css' %}">
+	<link rel="stylesheet" href="{% static 'footer.css' %}">
+	<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %} ">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <title>Document</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <a class="navbar-brand" href="#">Working Shift Arrangement System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div id="login">
+    <!-- <div id="login-text">
+      Login to Continue
+    </div>
+    <div id="login-form">
+      <div id="username-form" class="form">
+        <div id="username-text">Username</div>
+        <input type="text">
+      </div>
+      <div id="password-form" class="form">
+        <div id="password-text">Password</div>
+        <input type="password">
+      </div>
+    </div>
+    <div id="login-button">
+      Login
+    </div> -->
+  </div>
+  <div id="footer">
+    Copyright © 2020 Eugene.co All Rights Reserved
+  </div>
+</body>
+<script src="{% static 'jquery/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+<script src="{% static 'login/login.js'%}"></script>
+</html>
