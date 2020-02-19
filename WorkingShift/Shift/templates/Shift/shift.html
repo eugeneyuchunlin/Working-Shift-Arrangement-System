@@ -52,7 +52,7 @@
 			{% endif %}
 			{% if day %}
             	<div class="row">
-            	    <div class="shift-head shift-left shift-name shift-element">Date</div>
+            	    <div class="shift-head shift-left shift-name shift-element">Day</div>
 					<div class="shift-head shift-element shift-left-sec">{{firstday}}</div>
 					{% for d in day %}
 						<div class="shift-head shift-element">{{d}}</div>
@@ -195,4 +195,5 @@
 <script src="{% static 'jquery/jquery-3.4.1.min.js' %}"></script>
 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+<script src="{% static 'shift.js' %}"></script>
 </html>

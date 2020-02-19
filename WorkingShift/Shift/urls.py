@@ -5,4 +5,5 @@ urlpatterns = [
             path('login/', views.login, name='login'),
             path('overview/', views.overview, name='overview'),
             path('shift/', views.shift, name='shift'),
+            path('postshift/', views.postShift, name='postshift'),
         ]
