@@ -1,0 +1,82 @@
+#container{
+    width:720px;
+    margin:auto;
+    padding-top: 30px;
+}
+
+#overview{
+    font-size: 50px;
+    font-family: "HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue";
+    color:#707070;
+}
+
+.line{
+    width:inherit;
+    border-top: 1px solid;
+    border-color: lightgrey;
+}
+
+#shift-rule{
+    padding-top:50px;
+}
+
+.element{
+    height:50px;
+    border:1px solid;
+    width:50px;
+}
+
+table, tr, th, td{
+    border:1px solid;
+    border-color: lightgrey;
+    color:#707070;
+    text-align: center;
+    font-size:20px;
+    font-family: "Helvetica Neue Light", "Helvetica Neue";
+}
+
+td{
+    font-weight: 250;
+    font-family: "HelveticaNeue Light", "Helvetica Neue";
+}
+
+th{
+    width:4em;
+}
+
+#months{
+    width:540px;
+    margin:auto;
+    padding-top:50px;
+}
+
+.row{
+    border-bottom: 1px solid;
+    height:80px;
+    text-align: center;
+    padding-top:10px;
+    font-size: 25px;
+}
+
+.month{
+    width:180px;
+    color:#707070;
+    text-decoration: none;
+    font-family: "Helvetica Neue Light", "Helvetica Neue";
+    font-weight: 350;
+}
+
+.month.disable{
+    color:#C4C4C4;
+}
+
+
+.month:hover{
+    text-decoration: none;
+    color:#363636;
+}
+
+.name{
+    width:10em;
+    font-weight: 350;
+}

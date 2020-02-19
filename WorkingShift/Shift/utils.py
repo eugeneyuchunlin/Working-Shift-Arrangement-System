@@ -58,6 +58,48 @@ def addShift(path, tablename):
             print(json.dumps(document, indent=4,ensure_ascii=False))
             shift.insert_one(document) 
 
+def addRule(path, tablename):
+    rule = shiftdb[tablename]
+    with open(path,'r') as f:
+        rows = csv.reader(f)
+        rows = [row for row in rows]
+        month = rows[0]
+        del rows[0]
+        del month[0]
+
+        for i in range(len(rows)):
+            name = rows[i][0]
+            del rows[i][0]
+            document = {
+                    "name" : name,
+                    "rules" : []
+                    }
+            for j in range(len(month)):
+                document["rules"].append({
+                        "month" : month[j],
+                        "attr" : rows[i][j]
+                    })
+            rule.insert_one(document)
+
+def getRule(tablename):
+    rule = shiftdb[tablename]
+    cursor = rule.find({})
+    datas = []
+    months = [rule['month'] for rule in cursor[0]['rules']]
+    for data in cursor:
+        del data['_id']
+        datas.append(data)
+
+    
+    return {
+            "months" : months,
+            "data" : datas
+            }
+    
+
+
+
+
 if __name__ == '__main__':
-    addShift('./Working-Shift-Scheduling/files/shift20186.csv', 'shift20186')
+    getRule('rule2018')
 
