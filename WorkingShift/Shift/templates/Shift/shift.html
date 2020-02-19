@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./shift.css">
-    <link rel="stylesheet" href="./footer.css">
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'shift/shift.css' %}">
+	<link rel="stylesheet" href="{% static 'footer.css' %}">
+
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <title>Document</title>
@@ -39,379 +41,40 @@
               2019 Jul
           </div>
           <div id="shift">
-            <div class="row">
-                <div class="shift-head shift-left shift-name shift-element">Date</div>
-                <div class="shift-head shift-element">1</div>
-                <div class="shift-head shift-element">2</div>
-                <div class="shift-head shift-element">3</div>
-                <div class="shift-head shift-element">4</div>
-                <div class="shift-head shift-element">5</div>
-                <div class="shift-head shift-element">6</div>
-                <div class="shift-head shift-element">7</div>
-                <div class="shift-head shift-element">8</div>
-                <div class="shift-head shift-element">9</div>
-                <div class="shift-head shift-element">10</div>
-                <div class="shift-head shift-element">11</div>
-                <div class="shift-head shift-element">12</div>
-                <div class="shift-head shift-element">13</div>
-                <div class="shift-head shift-element">14</div>
-                <div class="shift-head shift-element">15</div>
-                <div class="shift-head shift-element">16</div>
-                <div class="shift-head shift-element">17</div>
-                <div class="shift-head shift-element">18</div>
-                <div class="shift-head shift-element">19</div>
-                <div class="shift-head shift-element">20</div>
-                <div class="shift-head shift-element">21</div>
-                <div class="shift-head shift-element">22</div>
-                <div class="shift-head shift-element">23</div>
-                <div class="shift-head shift-element">24</div>
-                <div class="shift-head shift-element">25</div>
-                <div class="shift-head shift-element">26</div>
-                <div class="shift-head shift-element">27</div>
-                <div class="shift-head shift-element">28</div>
-                <div class="shift-head shift-element">29</div>
-                <div class="shift-head shift-element">30</div>
-            </div>
-            <div class="row spaceline">
-                <div class="shift-name shift-element shift-left">黃文松</div>
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                
-            </div>
-            <div class="row">
-                <div class="shift-name shift-element shift-left">黃文松</div>
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                
-            </div>
-            <div class="row spaceline">
-                <div class="shift-name shift-element shift-left">黃文松</div>
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                
-            </div>
-            <div class="row">
-                <div class="shift-name shift-element shift-left">黃文松</div>
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                
-            </div>
-            <div class="row spaceline">
-                <div class="shift-name shift-element shift-left">黃文松</div>
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                
-            </div>
-            <div class="row">
-                <div class="shift-name shift-element shift-left">黃文松</div>
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                
-            </div>
-            <div class="row spaceline">
-                <div class="shift-name shift-element shift-left">黃文松</div>
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                
-            </div>
-            <div class="row">
-                <div class="shift-name shift-element shift-left">黃文松</div>
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                
-            </div>
-            <div class="row spaceline">
-                <div class="shift-name shift-element shift-left">黃文松</div>
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                
-            </div>
-            <div class="row">
-                <div class="shift-name shift-element shift-left">黃文松</div>
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                <input type="text" value="W" class="shift-element">
-                
-            </div>
+			{% if date %}
+            	<div class="row">
+            	    <div class="shift-head shift-left shift-name shift-element">Date</div>
+					<div class="shift-head shift-element shift-left-sec">{{firstdate}}</div>
+					{% for d in date %}
+						<div class="shift-head shift-element">{{d}}</div>
+					{% endfor %}
+            	</div>
+			{% endif %}
+			{% if day %}
+            	<div class="row">
+            	    <div class="shift-head shift-left shift-name shift-element">Date</div>
+					<div class="shift-head shift-element shift-left-sec">{{firstday}}</div>
+					{% for d in day %}
+						<div class="shift-head shift-element">{{d}}</div>
+					{% endfor %}
+            	</div>
+			{% endif %}
+
+			{% if data %}
+				{% for d in data %}
+				{% if d.grey %}
+					<div class="row spaceline">
+				{% else %}
+					<div class="row">
+				{% endif %}
+						<div class="shift-name shift-element shift-left">{{d.name}}</div>
+						<input type="text" value="{{d.firstShift.attr}}" class="shift-element shift-left-sec">
+						{% for s in d.shift %}
+							<input type="text" value="{{s.attr}}" class="shift-element">
+						{% endfor %}
+					</div>
+				{% endfor%}
+			{% endif %}
 
           </div>
           <div id="buttons">
@@ -529,8 +192,7 @@
         Copyright © 2020 Eugene.co All Rights Reserved
       </div>
 </body>
-<script src="./jquery-3.4.1.min.js"></script>
-<script src="./js/bootstrap.min.js"></script>
-<script src="./js/bootstrap.js"></script>
-<!-- <script src="./shift.js"></script> -->
+<script src="{% static 'jquery/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
 </html>

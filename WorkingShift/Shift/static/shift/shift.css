@@ -1,0 +1,158 @@
+.title{
+    font-size: 50px;
+    font-family: "HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue";
+    color:#707070;
+}
+
+#container{
+    width:1050px;
+    margin:auto;
+    padding-top: 30px;
+}
+
+.line{
+    width:inherit;
+    border-top: 1px solid;
+    border-color: lightgrey;
+    box-sizing: content-box;
+    height: 1px;
+}
+
+#month{
+    font-size : 24px;
+    padding-top:30px;
+    color: #707070;
+    font-family: "HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue";
+}
+
+.row{
+    margin:0px;
+	width:130%;
+	overflow :scroll;
+	white-space:nowrap;
+}
+
+.shift-row{
+	width:1440px;
+}
+
+input{
+    border:none;
+    border-left:0px;
+    outline: none;
+    padding:0px;
+    /* border:solid 1px; */
+}
+
+
+#shift{
+    margin-top:40px;
+	overflow: scroll;
+}
+
+.shift-head{
+    border-top:1px solid;
+    font-size:20px;
+}
+
+.shift-left{
+    border-left : 1px solid;
+	position:absolute;
+}
+
+
+.shift-element{
+    border-right: 1px solid;
+    text-align:center;
+    width:40px;
+    height:2em;
+    border-bottom: 1px solid;
+    border-color:lightgrey;
+	background-color:#FFFFFF;
+    color:#707070;
+	display:inline-block;
+}
+
+.shift-name{
+    width:60px;
+}
+
+#buttons{
+    margin:auto;
+    width:600px;
+    margin-top:50px;
+}
+
+.button{
+    width:150px;
+    border:1px solid;
+    cursor: pointer;
+    border-radius:40px;
+    text-align:center;
+    height:50px;
+    padding-top:12px;
+    border-color: lightgrey;
+    margin:auto;
+    margin-left:5%;
+    box-sizing: border-box;
+    display:inline-block;
+
+}
+
+#clear{
+    background-color:#FF0014;
+    color:white;
+}
+
+#calculate{
+    background-color:#297CF4;
+    color:white;
+}
+
+.spaceline input, .spaceline .shift-name{
+    background-color:lightgrey;
+    /* color:white; */
+}
+
+#shift-report{
+    margin-top:50px;
+}
+
+.subtitle{
+    font-size: 40px;
+    font-family: "HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue";
+    color:#707070;
+}
+
+#report{
+    margin-top:50px;
+}
+
+table, th{
+    font-size:15px;
+    font-weight: 250;
+    font-family: "HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue";
+    border:1px solid;
+    border-color:lightgrey;
+}
+
+th{
+    /* height:3em; */
+
+    width:10%;
+    padding-right:5px;
+    padding-left:5px;
+    /* width:150px; */
+}
+
+td{
+    border:1px solid;
+    border-color: lightgrey;
+    height:2.5em;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.shift-left-sec{
+	margin-left:60px;
+}

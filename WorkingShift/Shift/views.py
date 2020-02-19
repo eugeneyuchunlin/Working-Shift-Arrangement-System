@@ -12,4 +12,9 @@ def overview(request):
     template = loader.get_template('Shift/overview.html')
     return HttpResponse(template.render(rules, request))
 
+def shift(request):
+    shift = utils.getShift('shift20185')
+    template = loader.get_template('Shift/shift.html')
+    return HttpResponse(template.render(shift, request))
+
 # Create your views here.

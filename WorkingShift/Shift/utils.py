@@ -95,11 +95,36 @@ def getRule(tablename):
             "months" : months,
             "data" : datas
             }
+
+def getShift(tablename):
+    shift = shiftdb[tablename]
+    cursor = shift.find({})
+    datas = []
+    dates = [element['date'] for element in cursor[0]['shift']]
+    days = [element['day'] for element in cursor[0]['shift']]
+
+    document = {}
+    document["firstdate"] = dates[0]
+    document["firstday"] = days[0]
+
+    del dates[0]
+    del days[0]
+    i = 0
+    for data in cursor:
+        del data['_id']
+        data["firstShift"] = data["shift"][0]
+        del data["shift"][0]
+        if i % 2 == 0:
+            data["grey"] = True
+        i += 1
+        datas.append(data)
+
+    document["date"] = dates
+    document["data"] = datas
+    document["day"] = days
     
-
-
-
+    return document
 
 if __name__ == '__main__':
-    getRule('rule2018')
+    print(json.dumps(getShift('shift20185'),ensure_ascii=False))
 
