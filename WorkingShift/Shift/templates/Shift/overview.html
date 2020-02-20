@@ -58,26 +58,19 @@
             </table>
           </div>
           <div id="months">
-              <div class="row">
-                  <a href="#" class="month">Jan</a>
-                  <a href="#" class="month">Feb</a>
-                  <a href="#" class="month">Mar</a>
-              </div>
-              <div class="row">
-                    <a href="#" class="month">Apr</a>
-                    <a href="#" class="month">May</a>
-                    <a href="#" class="month">Jun</a>
-              </div>
-              <div class="row">
-                    <a href="#" class="month">Jul</a>
-                    <a href="#" class="month disable">Aug</a>
-                    <a href="#" class="month disable">Sep</a>
-              </div>
-              <div class="row">
-                    <a href="#" class="month disable">Oct</a>
-                    <a href="#" class="month disable">Nov</a>
-                    <a href="#" class="month disable">Dec</a>
-              </div>
+			  {% if monthAttr %}
+			  	{% for row in monthAttr%}
+				<div class="row">
+					{% for month in row %}
+					{% if month.attr%}
+						<a href="/shift/?year={{month.year}}&month={{month.MONTH}}" class="month">{{month.MONTH}}</a>
+					{% else %}
+						<a href="/shift/?year={{month.year}}&month={{month.MONTH}}" class="month disable">{{month.MONTH}}</a>
+					{% endif %}
+					{% endfor %}
+				</div>
+				{% endfor %}
+			  {% endif %}
           </div>
       </div>
       <div id="footer">
