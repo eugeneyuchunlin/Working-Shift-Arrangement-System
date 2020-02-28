@@ -4,7 +4,7 @@ $(document).ready(()=>{
 		var params = getParameter();
 		$.ajax({
 			type:"POST",
-			url:window.location.origin + '/postshift/' + "?year=" + params['year'] + "&month=" + params['month'],
+			url:window.location.origin + '/postshift/' + "?year=" + params['year'] + "&month=" + params['month'] + "&mode=computing",
 			data:JSON.stringify(data),
 			async:false,
 			dataType:"json",
@@ -20,7 +20,26 @@ $(document).ready(()=>{
 		})
 	})
 	$('#save').click(()=>{
-		location.reload();
+		console.log('save shift');
+		var data = getShift();	
+		var params= getParameter();
+		console.log(data)
+		console.log(params)
+		$.ajax({
+			type:"POST",
+			url:window.location.origin + '/postshift/' + "?year=" + params['year'] + "&month=" + params['month'] + "&mode=saving",
+			data:JSON.stringify(data),
+			async:false,
+			dataType:"json",
+			contentType: "application/json;charset=utf-8",
+			success:(res)=>{
+				console.log('Success');
+			},
+			error:(res)=>{
+				console.log('error');
+			}
+		})
+	
 	})
 })
 

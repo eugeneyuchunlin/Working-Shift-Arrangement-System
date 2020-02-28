@@ -3,6 +3,7 @@ import csv
 import calendar
 import os
 import subprocess
+import hashlib
 from pymongo import MongoClient
 
 client = MongoClient()
@@ -53,14 +54,21 @@ days = {
         7:"Sun",
         }
 
+def md5Hash(string):
+    md5 = hashlib.md5()
+    md5.update(string.encode('utf-8'))
+    return md5.hexdigest()
+
 def addBoss():
+    password = md5Hash("321")
+    print("password ",password)
     boss = {
-            "name" : "黃文松",
-            "username":"Vincent",
-            "password":"123"
+            "name" : "林友鈞",
+            "username":"Eugene",
+            "password":password
         }
     
-    bosses.insert_one(boss)
+    # bosses.insert_one(boss)
 
 def addWorker(path):
     with open(path, 'r') as f:
@@ -295,8 +303,9 @@ def generateNextMonthCSV(year, month):
     month = int(MONTH[month])
     path1 = os.path.dirname(__file__) + '/Working-Shift-Scheduling/files/calendar' + str(year) + str(month) + '.csv'
     month += 1
-    year += int(month / 12)
-    month %= 12
+    if month > 13:
+        year += 1
+    month %= 13
     path2 = os.path.dirname(__file__) + '/Working-Shift-Scheduling/files/calendar' + str(year) + str(month) + '.csv'
     os.system("cp %s %s" % (path1, path2))
 
@@ -322,7 +331,7 @@ def executeProgram(year, month):
     if next_month == 13:
         next_month = 12
     path = os.path.dirname(__file__)
-    command = '%s/Working-Shift-Scheduling/objects/main -y %s -m %s %s %s -c 10 10 20000 -p %s/Working-Shift-Scheduling/files/' % (path,year, last_month, month, next_month, path)
+    command = '%s/Working-Shift-Scheduling/objects/main -y %s -m %s %s %s -p %s/Working-Shift-Scheduling/files/' % (path,year, last_month, month, next_month, path)
     os.system(command)
     pass
 
@@ -353,9 +362,44 @@ def updateDataBase(year, month):
 
     pass
 
+def checkLogin(data):
+    data['password'] = md5Hash(data['password'])
+    result = bosses.find_one(data)  
+    if result != None:
+        return True
+    else:
+        return False
+
+def uploadQuality(year, month):
+    path = os.path.dirname(__file__) + '/../quality/shift%s%s.quality.csv' %(year, month)
+    data = {}
+    rows = []
+    try:
+        with open(path, 'r') as f:
+            csvreader = csv.reader(f)
+            for row in csvreader:
+                rows.append(row)
+            
+            data['header'] = rows[0]
+            del rows[0]
+            
+            data['content'] = rows
+
+            return data
+    except:
+        return
+
+def saveShift(data, year, month):
+    tablename = 'shift' + year + month
+    shift = shiftdb[tablename]
+    print(data)
+    pass
+				
 if __name__ == '__main__':
+    checkLogin({"username" : "Eugene", "password" : "321"})
+    # addBoss()    
     # checkYearMonthLegal({'year':'2018', 'month':'Jan'})
-    createShift(2018,9)
+    # createShift(2018,9)
     # cal = calendar.Calendar()
     # dates = cal.itermonthdates(2018,5)
 

@@ -65,10 +65,13 @@ var Password = function (_React$Component2) {
 var LoginButton = function (_React$Component3) {
     _inherits(LoginButton, _React$Component3);
 
-    function LoginButton() {
+    function LoginButton(props) {
         _classCallCheck(this, LoginButton);
 
-        return _possibleConstructorReturn(this, (LoginButton.__proto__ || Object.getPrototypeOf(LoginButton)).apply(this, arguments));
+        var _this3 = _possibleConstructorReturn(this, (LoginButton.__proto__ || Object.getPrototypeOf(LoginButton)).call(this, props));
+
+        _this3.state = { alreadyAlert: false };
+        return _this3;
     }
 
     _createClass(LoginButton, [{
@@ -76,9 +79,41 @@ var LoginButton = function (_React$Component3) {
         value: function handleClick() {
             var username = $('#username').val();
             var password = $('#password').val();
+            var data = { "username": username, "password": password };
             // send jqAJAX
             console.log(username);
             console.log(password);
+            var response;
+            $.ajax({
+                type: "POST",
+                async: false,
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
+                url: window.location.origin + '/login/',
+                data: JSON.stringify(data),
+                success: function success(res) {
+                    response = res;
+                    console.log(res);
+                },
+                error: function error(res, exception) {
+                    response = res;
+                    console.log(res);
+                }
+            });
+            if (response.responseText == 'Ok') {
+                window.location.href = window.location.origin + '/overview/?year=2018';
+            } else {
+                var alreadyAlert = this.state.alreadyAlert;
+                console.log(alreadyAlert);
+                if (!alreadyAlert) {
+                    $('.alert').transition('fade down');
+                    alreadyAlert = true;
+                    this.setState({ alreadyAlert: alreadyAlert });
+                }
+                console.log(this.state.alreadyAlert);
+                $('#username').addClass('wrong');
+                $('#password').addClass('wrong');
+            }
         }
     }, {
         key: "render",
@@ -113,6 +148,15 @@ var Login = function (_React$Component4) {
             return React.createElement(
                 "div",
                 null,
+                React.createElement(
+                    "div",
+                    { id: "alert" },
+                    React.createElement(
+                        "div",
+                        { className: "alert alert-danger", role: "alert" },
+                        "Wrong Password or Username"
+                    )
+                ),
                 React.createElement(
                     "div",
                     { id: "login-text" },

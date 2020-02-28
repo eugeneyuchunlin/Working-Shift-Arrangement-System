@@ -15,7 +15,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-        <a class="navbar-brand" href="#">Working Shift Arrangement System</a>
+        <a class="navbar-brand" href="/index/">Working Shift Arrangement System</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -42,7 +42,8 @@
           
           <div class="line"></div>
           <div id="month">
-              2019 Jul
+			  
+           	{{year}} {{mon}}
           </div>
           <div id="shift">
 			{% if date %}
@@ -86,111 +87,30 @@
             <div id="save" class="button">Save</div>
             <div id="calculate" class="button">Calculate</div>
           </div>
-          <div id="shift-report" style="display:none">
+		  {% if quality %}
+          <div id="shift-report">
             <div class="subtitle">Shift Report</div>
             <div class="line"></div>
             <table id="report">
-              <tr>
-                <th>name</th>
-                <th>D->C/D->A</th>
-                <th>Works More Than 7 days</th>
-                <th>Works more then 6 days</th>
-                <th>Sat/Sun isn't day-off</th>
-                <th>DAY-Off isn't day-off</th>
-                <th>Quaility</th>
-              </tr>
-              <tr>
-                <td>黃文松</td>
-                <td>False</td>
-                <td>False</td>
-                <td>False</td>
-                <td>9 days</td>
-                <td>3 days</td>
-                <td>19500</td>
-              </tr>
-              <tr>
-                <td>黃文松</td>
-                <td>False</td>
-                <td>False</td>
-                <td>False</td>
-                <td>9 days</td>
-                <td>3 days</td>
-                <td>19500</td>
-              </tr>
-              <tr>
-                <td>黃文松</td>
-                <td>False</td>
-                <td>False</td>
-                <td>False</td>
-                <td>9 days</td>
-                <td>3 days</td>
-                <td>19500</td>
-              </tr>
-              <tr>
-                <td>黃文松</td>
-                <td>False</td>
-                <td>False</td>
-                <td>False</td>
-                <td>9 days</td>
-                <td>3 days</td>
-                <td>19500</td>
-              </tr>
-              <tr>
-                <td>黃文松</td>
-                <td>False</td>
-                <td>False</td>
-                <td>False</td>
-                <td>9 days</td>
-                <td>3 days</td>
-                <td>19500</td>
-              </tr>
-              <tr>
-                <td>黃文松</td>
-                <td>False</td>
-                <td>False</td>
-                <td>False</td>
-                <td>9 days</td>
-                <td>3 days</td>
-                <td>19500</td>
-              </tr>
-              <tr>
-                <td>黃文松</td>
-                <td>False</td>
-                <td>False</td>
-                <td>False</td>
-                <td>9 days</td>
-                <td>3 days</td>
-                <td>19500</td>
-              </tr>
-              <tr>
-                <td>黃文松</td>
-                <td>False</td>
-                <td>False</td>
-                <td>False</td>
-                <td>9 days</td>
-                <td>3 days</td>
-                <td>19500</td>
-              </tr>
-              <tr>
-                <td>黃文松</td>
-                <td>False</td>
-                <td>False</td>
-                <td>False</td>
-                <td>9 days</td>
-                <td>3 days</td>
-                <td>19500</td>
-              </tr>
-              <tr>
-                <td>黃文松</td>
-                <td>False</td>
-                <td>False</td>
-                <td>False</td>
-                <td>9 days</td>
-                <td>3 days</td>
-                <td>19500</td>
-              </tr>
-            </table>
+			{% if quality.header %}
+			<tr>
+				{% for h in quality.header %}
+				<th>{{h}}</th>
+				{% endfor%}
+			</tr>
+			{% endif %}
+			{% if quality.content %}
+				{% for row in quality.content %}
+				<tr>
+					{% for element in row %}
+					<th>{{element}}</th>
+					{% endfor %}
+				</tr>
+				{% endfor %}
+			{% endif %}
+			</table>
           </div>
+		  {% endif %}
       </div>
       <div id="footer">
         Copyright © 2020 Eugene.co All Rights Reserved

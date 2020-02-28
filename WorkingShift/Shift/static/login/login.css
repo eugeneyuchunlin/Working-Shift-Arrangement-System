@@ -14,7 +14,7 @@
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;;
     margin: auto;
     text-align: center;
-    margin-top:100px;
+    margin-top:50px;
 }
 
 #login-form{
@@ -38,7 +38,6 @@ input{
     width:240px;
     font-size: 25px;
     font-family: "HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue";
-    
 }
 
 #login-button{
@@ -55,3 +54,24 @@ input{
     margin-top:50px;
 }
 
+#login-button:hover{
+	background-color:#707070;
+	color:white;
+	transition:.8s ease;
+}
+
+
+.wrong{
+    border-color:red;
+    transition: 2s ease;
+}
+
+#alert{
+    height: 50px;
+}
+
+.alert{
+    text-align: center;
+    display:none;
+    /* transition:2s ease; */
+}
