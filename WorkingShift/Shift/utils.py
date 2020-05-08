@@ -4,9 +4,10 @@ import calendar
 import os
 import subprocess
 import hashlib
+import ssl
 from pymongo import MongoClient
 
-client = MongoClient()
+client = MongoClient("mongodb+srv://root:Iammy310075@working-shift-ijuul.mongodb.net/test?retryWrites=true&w=majority", ssl=True, ssl_cert_reqs=ssl.CERT_NONE)
 
 shiftdb = client.test
 
@@ -68,7 +69,7 @@ def addBoss():
             "password":password
         }
     
-    # bosses.insert_one(boss)
+    bosses.insert_one(boss)
 
 def addWorker(path):
     with open(path, 'r') as f:
@@ -77,6 +78,7 @@ def addWorker(path):
         del names[0:2]
     
         for i in range(len(names)):
+            # print(names[i])
             workers.insert_one({
                 "name":names[i],
                 "id" : i,
@@ -284,11 +286,30 @@ def createShift(year, month):
     shift = shiftdb['shift'+str(year)+str(month)]
     shift.insert_many(workershift)
 
+def clearSchedule(year, month):
+    month = MONTH[month] 
+    shift = shiftdb['shift'+str(year)+ month]
+    
+    path = os.path.dirname(__file__) + '/../quality/shift%s%s.quality.csv' %(year, month)
+    os.system("rm %s" % path) 
+    shift.drop()
+    
+
 def generateTheCalendarCSV(data, year, month):
+    """
+    In this method, I'm going to add write data into the calendar file.
+    parameters:
+        data : receive from the browser.
+        year : receive from query string.
+        month : receive from query string
+    """
     path = os.path.dirname(__file__) + '/Working-Shift-Scheduling/files/calendar' + year + MONTH[month] + '.csv'
     with open(path,'w') as f:
         writer = csv.writer(f)
         keys = data.keys()
+        """
+        If the data include the last day of last month, the program need to eliminate it.
+        """
         if int(data['Date'][1]) > int(data['Date'][2]):
             for key in keys:
                 del data[key][1]
@@ -392,11 +413,39 @@ def uploadQuality(year, month):
 def saveShift(data, year, month):
     tablename = 'shift' + year + month
     shift = shiftdb[tablename]
-    print(data)
-    pass
+    print(data['Date'])
+    # need to del [][1]
+    date = data['Date'][1:]
+    day = data['Day'][1:]
+    del data['Date']
+    del data['Day']
+    for i in data:
+        del data[i][0:1]
+        personalShift = [] 
+        for j in range(len(date)):
+            dailyAttr = {
+                    "date" : date[j],
+                    "day" : day[j],
+                    "attr" : data[i][j]
+                    }
+            personalShift.append(dailyAttr)
+        print(i)
+        print(json.dumps(personalShift, indent=4))
+        shift.update_one({"name" : i }, {"$set" : {"shift" : personalShift} } )
+    
+    print("OUT")
+
 				
 if __name__ == '__main__':
-    checkLogin({"username" : "Eugene", "password" : "321"})
+    # print(shiftdb)
+    cursor = bosses.find({})
+    for i in cursor:
+        print(i)
+    # addBoss()
+    # addWorker('./Working-Shift-Scheduling/files/calendar20185.csv')
+    # addRule('./Working-Shift-Scheduling/files/rule2018.csv','rule2018')
+    # addShift('./Working-Shift-Scheduling/files/shift20184.csv', 'shift20184')
+    # checkLogin({"username" : "Eugene", "password" : "321"})
     # addBoss()    
     # checkYearMonthLegal({'year':'2018', 'month':'Jan'})
     # createShift(2018,9)

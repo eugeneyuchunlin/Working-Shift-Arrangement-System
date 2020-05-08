@@ -96,12 +96,36 @@ input{
     margin-left:5%;
     box-sizing: border-box;
     display:inline-block;
-
+	box-shadow: 0 9px #999;
 }
+
+
+.button:active{
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+}
+
 
 #clear{
     background-color:#FF0014;
     color:white;
+}
+
+#clear:hover{
+	background-color:#cc0010;
+}
+
+#clear:active{
+	background-color:#cc0010;
+}
+
+#save:hover{
+	background-color: #8e8b8b;
+	color:white;
+}
+
+#save:active{
+	background-color:#8e8b8b;
 }
 
 #calculate{
@@ -109,6 +133,13 @@ input{
     color:white;
 }
 
+#calculate:hover{
+	background-color:#146ef1;
+}
+
+#calculate:active{
+	background-color:#146ef1;
+}
 .spaceline input, .spaceline .shift-name{
     background-color:lightgrey;
     /* color:white; */
@@ -155,4 +186,23 @@ td{
 
 .shift-left-sec{
 	margin-left:60px;
+}
+
+.loader {
+	border: 16px solid #f3f3f3; /* Light grey */
+	border-top: 16px solid #3498db; /* Blue */
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	animation: spin 2s linear infinite;
+	position:absolute;
+	left:45%;
+	top:45%;
+	z-index:5;
+	display:none;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
 }

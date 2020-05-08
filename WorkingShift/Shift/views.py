@@ -3,8 +3,10 @@ import os
 import csv
 from django.shortcuts import render
 from django.template import loader
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
+import datetime
 from . import utils 
 
 def get_client_ip(request):
@@ -23,25 +25,43 @@ def set_cookie(response, key, value, days_expire = 7):
     expires = datetime.datetime.strftime(datetime.datetime.utcnow() + datetime.timedelta(seconds=max_age), "%a, %d-%b-%Y %H:%M:%S GMT")
     response.set_cookie(key, value, max_age=max_age, expires=expires, domain=settings.SESSION_COOKIE_DOMAIN, secure=settings.SESSION_COOKIE_SECURE or None)
 
+def checkIfLogin(request):
+    username = request.COOKIES.get("username")
+    ip = get_client_ip(request)
+    token = request.COOKIES.get("token")
+    if username == None or token == None:
+       return False
+    expectedToken = utils.md5Hash(ip + username)
+    return token == expectedToken
 
 def loginPage(request):
+    if(checkIfLogin(request)):
+        return HttpResponseRedirect('/overview?year=2018') 
+    print("======%s=====" % request.COOKIES)
     template = loader.get_template('Shift/login.html')
     return HttpResponse(template.render({},request))
+
 
 @csrf_exempt
 def login(request):
     data = json.loads(request.body)
+
     if utils.checkLogin(data):
         # must set the cookie value
         # In the next version, I'll set the cookie feature just because I'm lazy
         response  = HttpResponse('Ok')
+        set_cookie(response, "username", data["username"],1)
+        ip = get_client_ip(request)
+        token = utils.md5Hash(ip + data["username"])
+        set_cookie(response, "token", token, 1)
         return response
     else:
         return HttpResponse('Not Ok')
 
 def overview(request):
     # check the query of year is legal
-    print(request.GET)
+    if(not checkIfLogin(request)):
+        return HttpResponseRedirect("/index/")
     rules = utils.getRule(request.GET)
     if rules != None:
         months = utils.getCollection(request.GET['year'])
@@ -53,6 +73,8 @@ def overview(request):
 
 def shift(request): 
     # step 1 : check year and month is legal
+    if not checkIfLogin(request):
+        return HttpResponseRedirect("/index/")
     result = utils.checkYearMonthLegal(request.GET)
     quality = utils.uploadQuality(result['year'], result['month'])
     if result != None:
@@ -71,8 +93,10 @@ def postShift(request):
     year = request.GET['year']
     month = request.GET['month']
     mode = request.GET['mode']
-    data = json.loads(request.body, encoding=False)
-
+    try:
+        data = json.loads(request.body, encoding=False)
+    except:
+        data = {}
     if mode == 'computing':
         # step 1 : generate the current month calendar(csv)
         utils.generateTheCalendarCSV(data,year,month) 
@@ -94,6 +118,10 @@ def postShift(request):
         utils.saveShift(data, year, month)
         return HttpResponse('Ok') 
 
+    elif mode == 'clear':
+        utils.clearSchedule(year, month)
+        return HttpResponse('Ok') 
+
 def saveShift(request):
     year = request.GET['year']
     month = request.GET['month']
@@ -101,4 +129,6 @@ def saveShift(request):
     utils.saveShift(data, year, month);
     # save data to the database
     return HttpResponse('Ok')
+
+    
 # Create your views here.

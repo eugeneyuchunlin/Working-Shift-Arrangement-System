@@ -2,11 +2,11 @@ $(document).ready(()=>{
 	$('#calculate').click(()=>{
 		var data = getShift();
 		var params = getParameter();
+		waitingAnimation(true);
 		$.ajax({
 			type:"POST",
 			url:window.location.origin + '/postshift/' + "?year=" + params['year'] + "&month=" + params['month'] + "&mode=computing",
 			data:JSON.stringify(data),
-			async:false,
 			dataType:"json",
 			contentType: "application/json;charset=utf-8",
 			success:(res)=>{
@@ -21,6 +21,7 @@ $(document).ready(()=>{
 	})
 	$('#save').click(()=>{
 		console.log('save shift');
+		waitingAnimation(true);
 		var data = getShift();	
 		var params= getParameter();
 		console.log(data)
@@ -29,17 +30,36 @@ $(document).ready(()=>{
 			type:"POST",
 			url:window.location.origin + '/postshift/' + "?year=" + params['year'] + "&month=" + params['month'] + "&mode=saving",
 			data:JSON.stringify(data),
-			async:false,
 			dataType:"json",
 			contentType: "application/json;charset=utf-8",
 			success:(res)=>{
 				console.log('Success');
+				waitingAnimation(false);
 			},
 			error:(res)=>{
 				console.log('error');
+				waitingAnimation(false);
 			}
 		})
 	
+	})
+
+	$('#clear').click(()=>{
+		var params = getParameter();
+		$.ajax({
+			type:"GET",
+			url:window.location.origin + '/postshift/' + '?year=' + params['year'] + '&month=' + params['month'] + '&mode=clear',
+			async:false,
+			success:(res)=>{
+				console.log('success');	
+				location.reload();
+			},
+			error:(res)=>{
+				console.log('error');
+				location.reload();
+			}
+			
+		})
 	})
 })
 
@@ -81,4 +101,15 @@ var getShift = ()=>{
 		data[name] = dArray;
 	}
 	return data;
+}
+
+var waitingAnimation = (wait)=>{
+	if(wait){
+		$('.row').css('filter', 'blur(1px)');
+		$('.loader').css('display', 'block');
+	}else{
+		$('.row').css('filter', 'blur(0px)');
+		$('.loader').css('display', 'none');
+	}
+
 }
